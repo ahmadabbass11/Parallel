@@ -67,7 +67,8 @@ double commtime;
         fprintf(fp, "P2\n%d %d\n%d\n", WIDTH, HEIGHT, MAX_ITER);
         for (int row = 0; row < HEIGHT; row++) {
             for (int col = 0; col < WIDTH; col++) {
-                fprintf(fp, "%d ", output[row * WIDTH + col]);
+		int color=(output[row*WIDTH*col]%(MAX_ITER+1))*255/MAX_ITER;    
+                fprintf(fp, "%d %d %d", color, color, color);
             }
             fprintf(fp, "\n");
         }
